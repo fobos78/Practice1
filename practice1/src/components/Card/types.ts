@@ -10,5 +10,5 @@ export interface ICardProp {
     height?: string;
     variant: CardVariant;
     children?: ReactChild | ReactNode;
-    onClick?: () => void;
+    onClick: (num: number) => void;
 }

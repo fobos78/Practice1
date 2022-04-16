@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { CardVariant, ICardProp } from './types';
 
-
-
 const Card: FC<ICardProp> = ({width, height, variant, children, onClick}) => {
+  const [state, setState] = useState(0);
   return (
    <div style={{
      width, 
@@ -11,7 +10,7 @@ const Card: FC<ICardProp> = ({width, height, variant, children, onClick}) => {
      border : variant === CardVariant.outlined ? '1px solid gray' : 'none',
      background: variant === CardVariant.primary ? 'lyhtgray' : ''
     }}
-    onClick={onClick}>{children}</div>
+    onClick={() => onClick(state)}>{children}</div>
   );
 }
 
