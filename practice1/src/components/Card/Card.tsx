@@ -1,11 +1,17 @@
-import React from 'react';
-import { ICardProp } from './types';
+import React, { FC } from 'react';
+import { CardVariant, ICardProp } from './types';
 
 
 
-function Card({width, height, children} : ICardProp) {
+const Card: FC<ICardProp> = ({width, height, variant, children, onClick}) => {
   return (
-   <div style={{width, height, background : 'gray'}}>{children}</div>
+   <div style={{
+     width, 
+     height, 
+     border : variant === CardVariant.outlined ? '1px solid gray' : 'none',
+     background: variant === CardVariant.primary ? 'lyhtgray' : ''
+    }}
+    onClick={onClick}>{children}</div>
   );
 }
 
